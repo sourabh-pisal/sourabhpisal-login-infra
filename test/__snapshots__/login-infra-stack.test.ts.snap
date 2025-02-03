@@ -27,6 +27,18 @@ exports[`matches snapshot 1`] = `
     },
   },
   "Resources": {
+    "managedloginbranding": {
+      "Properties": {
+        "ClientId": {
+          "Ref": "userpoolclient6E7D7551",
+        },
+        "UseCognitoProvidedValues": true,
+        "UserPoolId": {
+          "Ref": "userpool38E431F2",
+        },
+      },
+      "Type": "AWS::Cognito::ManagedLoginBranding",
+    },
     "userpool38E431F2": {
       "DeletionPolicy": "Retain",
       "Properties": {

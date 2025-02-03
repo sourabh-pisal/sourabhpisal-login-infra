@@ -1,5 +1,12 @@
 import { CfnOutput, Stack, StackProps } from "aws-cdk-lib";
-import { ManagedLoginVersion, OAuthScope, UserPool, UserPoolClient, UserPoolDomain } from "aws-cdk-lib/aws-cognito";
+import {
+  CfnManagedLoginBranding,
+  ManagedLoginVersion,
+  OAuthScope,
+  UserPool,
+  UserPoolClient,
+  UserPoolDomain,
+} from "aws-cdk-lib/aws-cognito";
 import { Construct } from "constructs";
 
 export class LoginInfraStack extends Stack {
@@ -28,6 +35,12 @@ export class LoginInfraStack extends Stack {
       userPool,
       cognitoDomain: { domainPrefix: "login-sourabhpisal" },
       managedLoginVersion: ManagedLoginVersion.NEWER_MANAGED_LOGIN,
+    });
+
+    new CfnManagedLoginBranding(this, "managed-login-branding", {
+      userPoolId: userPool.userPoolId,
+      clientId: userPoolClient.userPoolClientId,
+      useCognitoProvidedValues: true,
     });
 
     new CfnOutput(this, "user-pool-id", { value: userPool.userPoolId });
