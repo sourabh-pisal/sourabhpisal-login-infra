@@ -4,8 +4,8 @@ import { PipelineStack } from "../lib";
 
 test("matches snapshot", () => {
   const stack = new Stack();
-  new PipelineStack(stack, "PipelineStack", {});
-  const template = Template.fromStack(stack);
+  const pipelineStack = new PipelineStack(stack, "pipeline-stack", {});
+  const template = Template.fromStack(pipelineStack);
 
   expect(template.toJSON()).toMatchSnapshot();
 });

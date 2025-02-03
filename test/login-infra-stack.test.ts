@@ -4,8 +4,8 @@ import { LoginInfraStack } from "../lib/login-infra-stack";
 
 test("matches snapshot", () => {
   const stack = new Stack();
-  new LoginInfraStack(stack, "LoginInfraStack", {});
-  const template = Template.fromStack(stack);
+  const loginInfraStack = new LoginInfraStack(stack, "login-infra", {});
+  const template = Template.fromStack(loginInfraStack);
 
   expect(template.toJSON()).toMatchSnapshot();
 });
