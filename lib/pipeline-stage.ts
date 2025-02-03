@@ -5,6 +5,6 @@ import { LoginInfraStack } from "./login-infra-stack";
 export class PipelineStage extends Stage {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
-    new LoginInfraStack(this, "SourabhPisalLoginInfraStack", {});
+    new LoginInfraStack(this, "sourabh-pisal-infra", {});
   }
 }
