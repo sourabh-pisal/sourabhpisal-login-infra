@@ -7,10 +7,10 @@ export class PipelineStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const codePipeline = new CodePipeline(this, "HabitTrackerApiPipeline", {
-      pipelineName: "HabitTrackerApiPipeline",
+    const codePipeline = new CodePipeline(this, "SourabhPisalLoginInfraPipeline", {
+      pipelineName: "SourabhPisalLoginInfraPipeline",
       synth: new ShellStep("synth", {
-        input: CodePipelineSource.gitHub("sourabh-pisal/habit-tracker-api", "main"),
+        input: CodePipelineSource.gitHub("sourabh-pisal/sourabhpisal-login-infra", "main"),
         commands: ["npm ci", "npm run build", "npm run cdk synth"],
       }),
     });
