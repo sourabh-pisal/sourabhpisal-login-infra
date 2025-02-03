@@ -2,6 +2,23 @@
 
 exports[`matches snapshot 1`] = `
 {
+  "Outputs": {
+    "userpoolclientid": {
+      "Value": {
+        "Ref": "userpoolclient6E7D7551",
+      },
+    },
+    "userpooldomainname": {
+      "Value": {
+        "Ref": "userpooldomain9FDEA85F",
+      },
+    },
+    "userpoolid": {
+      "Value": {
+        "Ref": "userpool38E431F2",
+      },
+    },
+  },
   "Parameters": {
     "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -75,6 +92,15 @@ exports[`matches snapshot 1`] = `
         },
       },
       "Type": "AWS::Cognito::UserPoolClient",
+    },
+    "userpooldomain9FDEA85F": {
+      "Properties": {
+        "Domain": "login-sourabhpisal",
+        "UserPoolId": {
+          "Ref": "userpool38E431F2",
+        },
+      },
+      "Type": "AWS::Cognito::UserPoolDomain",
     },
   },
   "Rules": {

@@ -1,5 +1,5 @@
-import { Stack, StackProps } from "aws-cdk-lib";
-import { OAuthScope, UserPool, UserPoolClient } from "aws-cdk-lib/aws-cognito";
+import { CfnOutput, Stack, StackProps } from "aws-cdk-lib";
+import { OAuthScope, UserPool, UserPoolClient, UserPoolDomain } from "aws-cdk-lib/aws-cognito";
 import { Construct } from "constructs";
 
 export class LoginInfraStack extends Stack {
@@ -14,7 +14,7 @@ export class LoginInfraStack extends Stack {
       },
     });
 
-    new UserPoolClient(this, "user-pool-client", {
+    const userPoolClient = new UserPoolClient(this, "user-pool-client", {
       userPool,
       authFlows: { user: true, userSrp: true },
       oAuth: {
@@ -23,5 +23,14 @@ export class LoginInfraStack extends Stack {
         scopes: [OAuthScope.EMAIL, OAuthScope.OPENID],
       },
     });
+
+    const userPoolDomain = new UserPoolDomain(this, "user-pool-domain", {
+      userPool,
+      cognitoDomain: { domainPrefix: "login-sourabhpisal" },
+    });
+
+    new CfnOutput(this, "user-pool-id", { value: userPool.userPoolId });
+    new CfnOutput(this, "user-pool-client-id", { value: userPoolClient.userPoolClientId });
+    new CfnOutput(this, "user-pool-domain-name", { value: userPoolDomain.domainName });
   }
 }
