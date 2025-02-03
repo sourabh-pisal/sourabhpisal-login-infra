@@ -26,7 +26,7 @@ export class LoginInfraStack extends Stack {
       authFlows: { user: true, userSrp: true },
       oAuth: {
         flows: { authorizationCodeGrant: true },
-        callbackUrls: ["http://localhost:3000"],
+        callbackUrls: ["http://localhost:3000", "https://todo.sourabhpisal.com/"],
         scopes: [OAuthScope.EMAIL, OAuthScope.OPENID],
       },
     });

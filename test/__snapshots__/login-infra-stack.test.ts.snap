@@ -90,6 +90,7 @@ exports[`matches snapshot 1`] = `
         ],
         "CallbackURLs": [
           "http://localhost:3000",
+          "https://todo.sourabhpisal.com/",
         ],
         "ExplicitAuthFlows": [
           "ALLOW_USER_SRP_AUTH",
