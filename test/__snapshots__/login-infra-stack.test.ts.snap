@@ -96,6 +96,7 @@ exports[`matches snapshot 1`] = `
     "userpooldomain9FDEA85F": {
       "Properties": {
         "Domain": "login-sourabhpisal",
+        "ManagedLoginVersion": 2,
         "UserPoolId": {
           "Ref": "userpool38E431F2",
         },
