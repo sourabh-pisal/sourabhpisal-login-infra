@@ -11,7 +11,7 @@
     "test": "jest",
     "cdk": "cdk",
     "synth": "cdk synth",
-    "upgrade:latest": "yarn upgrade --latest",
+    "upgrade:deps": "npx npm-check-updates -u && npm install",
     "clean": "rm -rf cdk.out && rm -rf dist"
   },
   "devDependencies": {
